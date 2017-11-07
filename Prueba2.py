@@ -1,15 +1,19 @@
 def funcion(numero):
 	resultado = []
-	resultado.insert(0, numero)
+	resultado.append(numero)   ##transformar a Strings los numeros
+	#resultado.append(numero)
+	nuevonumero = numero
 	for i in range(1,9):
+		largo = len(resultado)
 		contador = 0
-		nuevonumero = resultado[i-1]
-		for nuevonumero in resultado:
+		prev = resultado [i-1]
+		if nuevonumero == prev:
 			contador += 1
-		resultado.insert(i, contador)
-
+		resultado.append(contador)
+		resultado.append(nuevonumero)
+		nuevonumero = contador
 	return resultado
 
 
 
-print(funcion(4))
+print(funcion(5))
