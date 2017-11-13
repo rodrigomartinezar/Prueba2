@@ -1,19 +1,14 @@
-def funcion(numero):
-	resultado = []
-	resultado.append(numero)   ##transformar a Strings los numeros
-	#resultado.append(numero)
-	nuevonumero = numero
-	for i in range(1,9):
-		largo = len(resultado)
-		contador = 0
-		prev = resultado [i-1]
-		if nuevonumero == prev:
-			contador += 1
-		resultado.append(contador)
-		resultado.append(nuevonumero)
-		nuevonumero = contador
-	return resultado
+import itertools
+
+def lookandsay(numero):
+	return "".join(str(sum(1 for x in g)) + k for k,g in itertools.groupby(numero))
+
+	
+def funcion(num):
+	seq = [num]
+	for x in range(9):
+		seq.append(lookandsay(seq[-1]))
+	return seq
 
 
-
-print(funcion(5))
+print(funcion('1'))
